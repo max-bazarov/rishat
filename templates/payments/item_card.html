@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="d-flex flex-column align-items-center pt-3"
+             style="background-color: #e6e6e6;
+                    min-height: 800px"></div>
+        <form action="/create-checkout-session" method="POST">
+            <button type="submit" id="checkout-button">Checkout</button>
+        </form>
+    </div>
+{% endblock content %}
