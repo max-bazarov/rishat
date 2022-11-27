@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Item
+
+
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description', 'price')
+    search_fields = ('name', 'description', 'price')
+    list_filter = ('name', 'description', 'price')
+    ordering = ('price',)
