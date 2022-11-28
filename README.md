@@ -9,25 +9,43 @@ stripe.com/docs - платёжная система с подробным API и
 2. Создайте и активируйте виртуальное окружение:
 
 linux:
-```python3 -m venv venv```
-```source venv/bin/activate```
+```
+python3 -m venv venv
+```
+```
+source venv/bin/activate
+```
 
 3. Установите зависимости:
-```python3 -m pip install --upgrade pip```
-```pip3 install -r requirements.txt```
+```
+python3 -m pip install --upgrade pip
+```
+```
+pip3 install -r requirements.txt
+```
 
 4. Выполните миграции.
-```python3 manage.py migrate```
+```
+python3 manage.py migrate
+```
 
 5. Запустите сервер.
-```python3 manage.py runserver```
+```
+python3 manage.py runserver
+```
 
 ## Примеры запросов
 1. Получить список товаров
-```GET /api/items/```
+```
+GET /api/items/
+```
 
 2. Получить страницу с товаром
-```GET /api/items/<id>/```
+```
+GET /api/items/<id>/
+```
 
 3. Получить id сессии stripe для оплаты товара по id
-```GET /api/buy/<id>```
+```
+GET /api/buy/<id>
+```
