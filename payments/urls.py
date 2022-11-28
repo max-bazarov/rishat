@@ -1,11 +1,11 @@
-from django.urls import include, path
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
-from .views import ItemViewSet
-
-router = DefaultRouter()
-router.register(r'items', ItemViewSet, 'item')
+from .views import CancelView, ItemDetail, ItemList, StripeSession, SuccessView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('buy/<int:pk>/', StripeSession.as_view(), name='buy'),
+    path('items/', ItemList.as_view(), name='item-list'),
+    path('items/<int:pk>/', ItemDetail.as_view(), name='item-detail'),
+    path('success/', SuccessView.as_view(), name='success'),
+    path('cancel/', CancelView.as_view(), name='cancel'),
 ]
