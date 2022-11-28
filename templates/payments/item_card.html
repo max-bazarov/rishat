@@ -1,11 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="row">
-        <div class="d-flex flex-column align-items-center pt-3"
-             style="background-color: #e6e6e6;
-                    min-height: 800px"></div>
-        <form action="/create-checkout-session" method="POST">
-            <button type="submit" id="checkout-button">Checkout</button>
-        </form>
+    {% csrf_token %}
+    <div class="card mb-3 col-12 col-md-5 d-inline-block shadow-sm overflow-hidden">
+        <div class="card-header text-muted small">Item card</div>
+        <div class="card-body">
+            <h1 class="card-title">{{ item.name }}</h1>
+            <p class="card-text">{{ item.description|linebreaksbr }}</p>
+            <h5 class="card-title">{{ item.price }}$</h5>
+        </div>
+        <div class="card-footer text-muted small">
+            <button class="btn btn-primary" id="buy-button">Buy</button>
+            <script type="text/javascript">
+                var stripe = Stripe('{{ stripe_public_key }}');
+                var buyButton = document.getElementById('buy-button');
+                buyButton.addEventListener('click', function() {
+                    fetch("http://localhost:8000/api/buy/{{item.id}}")
+                    .then((response) => {return response.json();})
+                    .then((session) => stripe.redirectToCheckout({ sessionId: session.session_id }))
+                });
+            </script>
+        </div>
     </div>
 {% endblock content %}
