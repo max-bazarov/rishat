@@ -1,5 +1,5 @@
 # Тестовое задание для компании "Ришат"
-https://rishat.sytes.net/api/items/1/
+https://rishat.sytes.net/api/items/
 
 ## Задание
 stripe.com/docs - платёжная система с подробным API и бесплатным тестовым режимом для имитации и тестирования платежей.
@@ -33,10 +33,18 @@ pip3 install -r requirements.txt
 python3 manage.py migrate
 ```
 
-5. Запустите сервер.
+5. Далее нужно зарегестрироваться на https://stripe.com/
+Скопировать ключи из личного кабинета и добавить их в .env файл.
+```
+STRIPE_SECRET_KEY = sk_test_1234
+STRIPE_PUB_KEY = pk_test_1234
+```
+
+6. Запустите сервер.
 ```
 python3 manage.py runserver
 ```
+***Внимание! Чтобы stripe смог ответить на ваш api, нужно настроить wsgi сервер на https***
 
 ## Примеры запросов
 1. Получить список товаров
