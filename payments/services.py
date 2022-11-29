@@ -29,8 +29,8 @@ class PaymentSessionService:
                 }
             ],
             mode='payment',
-            success_url='http://localhost:8000/api/success',
-            cancel_url='http://localhost:8000/api/cancel',
+            success_url='https://rishat.sytes.net/api/success',
+            cancel_url='https://rishat.sytes.net/api/cancel',
         )
 
         return session.id

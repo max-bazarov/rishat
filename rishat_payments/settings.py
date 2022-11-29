@@ -4,12 +4,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 SECRET_KEY = ')4uq&omw^%xo(aq__n7(&w%oiz#**_49-!6r)zseeyk*5lq2w*'
-DEBUG = True
+DEBUG = False
 
 
 AUTH_USER_MODEL = 'users.User'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '158.160.38.216', 'rishat.sytes.net',]
 
 
 INSTALLED_APPS = [
@@ -95,4 +95,4 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
