@@ -33,7 +33,7 @@ pip3 install -r requirements.txt
 python3 manage.py migrate
 ```
 
-5. Далее нужно зарегестрироваться на https://stripe.com/
+5. Далее нужно зарегистрироваться на https://stripe.com/
 Скопировать ключи из личного кабинета и добавить их в .env файл.
 ```
 STRIPE_SECRET_KEY = sk_test_1234
